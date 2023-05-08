@@ -13,7 +13,7 @@ import {
   buildQuery,
   isDefined,
 } from "@medusajs/utils"
-import { EntityManager, FindManyOptions } from "typeorm"
+import { EntityManager, FindManyOptions, In } from "typeorm"
 import { InventoryLevelService } from "."
 import { ReservationItem } from "../models"
 
@@ -128,36 +128,42 @@ export default class ReservationItemService {
    */
   @InjectEntityManager()
   async create(
-    data: CreateReservationItemInput,
+    data: CreateReservationItemInput | CreateReservationItemInput[],
     @MedusaContext() context: SharedContext = {}
-  ): Promise<ReservationItem> {
+  ): Promise<ReservationItem[]> {
+    const toCreate = Array.isArray(data) ? data : [data]
+
     const manager = context.transactionManager!
     const reservationItemRepository = manager.getRepository(ReservationItem)
 
-    const reservationItem = reservationItemRepository.create({
-      inventory_item_id: data.inventory_item_id,
-      line_item_id: data.line_item_id,
-      location_id: data.location_id,
-      quantity: data.quantity,
-      metadata: data.metadata,
-      external_id: data.external_id,
-    })
+    const reservationItems = reservationItemRepository.create(
+      toCreate.map((tc) => ({
+        inventory_item_id: tc.inventory_item_id,
+        line_item_id: tc.line_item_id,
+        location_id: tc.location_id,
+        quantity: tc.quantity,
+        metadata: tc.metadata,
+        external_id: tc.external_id,
+      }))
+    )
 
-    const [newReservationItem] = await Promise.all([
-      reservationItemRepository.save(reservationItem),
-      this.inventoryLevelService_.adjustReservedQuantity(
-        data.inventory_item_id,
-        data.location_id,
-        data.quantity,
-        context
+    const [newReservationItems] = await Promise.all([
+      reservationItemRepository.save(reservationItems),
+      ...toCreate.map(async (data) =>
+        this.inventoryLevelService_.adjustReservedQuantity(
+          data.inventory_item_id,
+          data.location_id,
+          data.quantity,
+          context
+        )
       ),
     ])
 
     await this.eventBusService_?.emit?.(ReservationItemService.Events.CREATED, {
-      id: newReservationItem.id,
+      ids: newReservationItems.map((i) => i.id),
     })
 
-    return newReservationItem
+    return newReservationItems
   }
 
   /**
@@ -231,20 +237,18 @@ export default class ReservationItemService {
    */
   @InjectEntityManager()
   async deleteByLineItem(
-    lineItemId: string,
+    lineItemId: string | string[],
     @MedusaContext() context: SharedContext = {}
   ): Promise<void> {
     const manager = context.transactionManager!
     const itemRepository = manager.getRepository(ReservationItem)
 
-    const items = await this.list(
-      { line_item_id: lineItemId },
-      undefined,
-      context
-    )
+    const ids = Array.isArray(lineItemId) ? lineItemId : [lineItemId]
+
+    const items = await this.list({ line_item_id: ids }, {}, context)
 
     const ops: Promise<unknown>[] = [
-      itemRepository.softDelete({ line_item_id: lineItemId }),
+      itemRepository.softDelete({ line_item_id: In(ids) }),
     ]
     for (const item of items) {
       ops.push(

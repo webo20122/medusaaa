@@ -106,7 +106,7 @@ export interface IInventoryService {
   ): Promise<void>
 
   deleteReservationItemByLocationId(
-    locationId: string,
+    locationId: string | string[],
     context?: SharedContext
   ): Promise<void>
 

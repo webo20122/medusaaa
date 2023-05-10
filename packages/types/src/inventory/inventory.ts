@@ -68,8 +68,8 @@ export interface IInventoryService {
 
   updateInventoryLevels(
     updates: ({
-      inventoryItemId: string
-      locationId: string
+      inventory_item_id: string
+      location_id: string
     } & UpdateInventoryLevelInput)[],
     context?: SharedContext
   ): Promise<InventoryLevelDTO[]>

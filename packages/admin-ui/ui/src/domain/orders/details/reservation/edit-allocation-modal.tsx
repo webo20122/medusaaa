@@ -1,4 +1,3 @@
-import { AllocationLineItemForm } from "./allocate-items-modal"
 import { Controller, useForm, useWatch } from "react-hook-form"
 import { LineItem, ReservationItemDTO } from "@medusajs/medusa"
 import {
@@ -11,15 +10,16 @@ import { useEffect, useMemo } from "react"
 
 import Button from "../../../../components/fundamentals/button"
 import CrossIcon from "../../../../components/fundamentals/icons/cross-icon"
+import { ReserveLineItemForm } from "./reserve-items-modal"
 import Select from "../../../../components/molecules/select/next-select/select"
 import SideModal from "../../../../components/molecules/modal/side-modal"
-import useNotification from "../../../../hooks/use-notification"
 import Thumbnail from "../../../../components/atoms/thumbnail"
 import { getFulfillableQuantity } from "../create-fulfillment/item-table"
+import useNotification from "../../../../hooks/use-notification"
 
 type EditAllocationLineItemForm = {
   location: { label: string; value: string }
-  item: AllocationLineItemForm
+  item: ReserveLineItemForm
 }
 
 const EditAllocationDrawer = ({

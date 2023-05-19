@@ -1,5 +1,11 @@
 # @medusajs/client-types
 
+## 0.2.3
+
+### Patch Changes
+
+- [#4066](https://github.com/medusajs/medusa/pull/4066) [`4fb443c0e`](https://github.com/medusajs/medusa/commit/4fb443c0ea38bde3148bce059c0ee3b91dfff3d4) Thanks [@pKorsholm](https://github.com/pKorsholm)! - feat(medusa,client-types): add location_id filtering to list-location levels
+
 ## 0.2.2
 
 ### Patch Changes

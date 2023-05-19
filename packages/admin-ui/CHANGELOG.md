@@ -1,5 +1,14 @@
 # @medusajs/admin-ui
 
+## 1.8.7
+
+### Patch Changes
+
+- [#4051](https://github.com/medusajs/medusa/pull/4051) [`294576949`](https://github.com/medusajs/medusa/commit/294576949792f8c4dc2a8c1a03fdc9db73a8a00e) Thanks [@pKorsholm](https://github.com/pKorsholm)! - feat(admin-ui): fix allow_backorder updates
+
+- Updated dependencies []:
+  - medusa-react@8.0.1
+
 ## 1.8.6
 
 ### Patch Changes

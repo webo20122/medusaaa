@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.6
+
+### Patch Changes
+
+- Updated dependencies [[`a91987fab`](https://github.com/medusajs/medusa/commit/a91987fab33745f9864eab21bd1c27e8e3e24571)]:
+  - @medusajs/utils@1.8.6
+
 ## 2.0.5
 
 ### Patch Changes

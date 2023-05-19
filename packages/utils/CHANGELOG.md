@@ -1,5 +1,11 @@
 # @medusajs/utils
 
+## 1.8.6
+
+### Patch Changes
+
+- [#4026](https://github.com/medusajs/medusa/pull/4026) [`a91987fab`](https://github.com/medusajs/medusa/commit/a91987fab33745f9864eab21bd1c27e8e3e24571) Thanks [@olivermrbl](https://github.com/olivermrbl)! - feat(medusa): Remove sqlite support
+
 ## 1.8.5
 
 ### Patch Changes

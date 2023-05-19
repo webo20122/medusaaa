@@ -1,5 +1,14 @@
 # @medusajs/modules-sdk
 
+## 1.8.7
+
+### Patch Changes
+
+- [#4065](https://github.com/medusajs/medusa/pull/4065) [`e73c3e51c`](https://github.com/medusajs/medusa/commit/e73c3e51c9cd192eeae7a57b24b07bd466214145) Thanks [@carlos-r-l-rodrigues](https://github.com/carlos-r-l-rodrigues)! - chore: module as singleton instances
+
+- Updated dependencies [[`a91987fab`](https://github.com/medusajs/medusa/commit/a91987fab33745f9864eab21bd1c27e8e3e24571)]:
+  - @medusajs/utils@1.8.6
+
 ## 1.8.6
 
 ### Patch Changes

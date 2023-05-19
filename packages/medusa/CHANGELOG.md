@@ -1,5 +1,22 @@
 # Change Log
 
+## 1.11.1
+
+### Patch Changes
+
+- [#4066](https://github.com/medusajs/medusa/pull/4066) [`4fb443c0e`](https://github.com/medusajs/medusa/commit/4fb443c0ea38bde3148bce059c0ee3b91dfff3d4) Thanks [@pKorsholm](https://github.com/pKorsholm)! - feat(medusa,client-types): add location_id filtering to list-location levels
+
+- [#3703](https://github.com/medusajs/medusa/pull/3703) [`ed382f2ee`](https://github.com/medusajs/medusa/commit/ed382f2ee510cbf96164991efa7ff75e3ce659ff) Thanks [@adrien2p](https://github.com/adrien2p)! - feat(medusa): Improve prices flow
+
+- [#4094](https://github.com/medusajs/medusa/pull/4094) [`e2d29d35c`](https://github.com/medusajs/medusa/commit/e2d29d35c4c477bc9b4a3ddce1279276fd072875) Thanks [@juanzgc](https://github.com/juanzgc)! - feat(plugins): Pass Config Modules to plugin
+
+- [#4026](https://github.com/medusajs/medusa/pull/4026) [`a91987fab`](https://github.com/medusajs/medusa/commit/a91987fab33745f9864eab21bd1c27e8e3e24571) Thanks [@olivermrbl](https://github.com/olivermrbl)! - feat(medusa): Remove sqlite support
+
+- Updated dependencies [[`a91987fab`](https://github.com/medusajs/medusa/commit/a91987fab33745f9864eab21bd1c27e8e3e24571), [`e73c3e51c`](https://github.com/medusajs/medusa/commit/e73c3e51c9cd192eeae7a57b24b07bd466214145)]:
+  - @medusajs/medusa-cli@1.3.15
+  - @medusajs/utils@1.8.6
+  - @medusajs/modules-sdk@1.8.7
+
 ## 1.11.0
 
 ### Minor Changes

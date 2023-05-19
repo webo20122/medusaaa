@@ -1,6 +1,6 @@
 {
   "name": "@medusajs/modules-sdk",
-  "version": "1.8.6",
+  "version": "1.8.7",
   "description": "SDK for medusa modules",
   "main": "dist/index.js",
   "repository": {
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@medusajs/types": "1.8.6",
-    "@medusajs/utils": "1.8.5",
+    "@medusajs/utils": "1.8.6",
     "awilix": "^8.0.0",
     "glob": "7.1.6",
     "medusa-telemetry": "^0.0.16",
